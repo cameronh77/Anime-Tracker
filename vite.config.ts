@@ -4,4 +4,6 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Listen on the local network so phones on the same Wi-Fi can open it.
+  server: { host: true },
 })
