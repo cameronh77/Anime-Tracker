@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getSeasonNow, getTopAnime } from '../api/jikan';
+import { getSeasonNow, getTopAnime } from '../api/anilist';
 import AnimeGrid from '../components/AnimeGrid';
 import { useAsync } from '../hooks/useAsync';
 import { useLibrary } from '../store/library';

@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { searchAnime } from '../api/jikan';
+import { searchAnime } from '../api/anilist';
 import AnimeGrid from '../components/AnimeGrid';
 import { useAsync } from '../hooks/useAsync';
 

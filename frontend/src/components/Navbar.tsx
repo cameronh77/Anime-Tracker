@@ -1,5 +1,37 @@
 import { useState, type FormEvent } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { signOut, useSession } from '../api/auth';
+
+function NavUser() {
+  const { data: session, isPending } = useSession();
+  const navigate = useNavigate();
+
+  if (isPending) return null;
+  if (!session) {
+    return (
+      <Link to="/signin" className="btn sm">
+        Sign in
+      </Link>
+    );
+  }
+
+  const { name } = session.user;
+  return (
+    <div className="nav-user">
+      <span className="avatar-sm" aria-hidden>{name[0]?.toUpperCase()}</span>
+      <span>{name}</span>
+      <button
+        className="link small"
+        onClick={async () => {
+          await signOut();
+          navigate('/');
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [q, setQ] = useState('');
@@ -26,6 +58,7 @@ export default function Navbar() {
         <form onSubmit={submit} className="nav-search">
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search anime…" aria-label="Search anime" />
         </form>
+        <NavUser />
       </div>
     </header>
   );

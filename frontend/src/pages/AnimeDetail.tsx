@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getAnime, snapshot } from '../api/jikan';
+import { getAnime, snapshot } from '../api/anilist';
 import LogModal from '../components/LogModal';
 import StarRating from '../components/StarRating';
 import Review from '../components/Review';
@@ -45,7 +45,7 @@ export default function AnimeDetail() {
           <img className="detail-poster" src={snap.image} alt={snap.title} />
           {anime.score && (
             <div className="muted small center">
-              MAL score <strong className="gold">{anime.score.toFixed(2)}</strong>
+              AniList score <strong className="gold">{anime.score.toFixed(1)}</strong>
             </div>
           )}
         </aside>

@@ -1,4 +1,4 @@
-// Minimal shape of the anime data we use from the Jikan API (MyAnimeList).
+// The anime shape pages use. Built from AniList data in api/anilist.ts; IDs are MyAnimeList IDs.
 export interface Anime {
   mal_id: number;
   title: string;

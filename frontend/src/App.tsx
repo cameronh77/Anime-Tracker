@@ -8,6 +8,7 @@ import ListDetail from './pages/ListDetail';
 import Lists from './pages/Lists';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
+import SignIn from './pages/SignIn';
 
 export default function App() {
   return (
@@ -22,10 +23,11 @@ export default function App() {
         <Route path="/lists" element={<Lists />} />
         <Route path="/lists/:id" element={<ListDetail />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<div className="page"><p className="muted">Page not found.</p></div>} />
       </Routes>
       <footer className="footer muted small">
-        Anime data from <a href="https://jikan.moe" target="_blank" rel="noreferrer">Jikan</a> / MyAnimeList. Your data is stored in this browser.
+        Anime data from <a href="https://anilist.co" target="_blank" rel="noreferrer">AniList</a>. Your data is stored in this browser.
       </footer>
     </BrowserRouter>
   );
